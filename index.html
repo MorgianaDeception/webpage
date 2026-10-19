@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Morgiana — AI-driven deception for internal threat detection</title>
+  <meta name="description" content="Any door could be a trap. Morgiana uses AI-driven deception to catch internal threats early and slow them down.">
+  <meta name="theme-color" content="#16181C">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Morgiana">
+  <meta property="og:description" content="AI-driven deception for internal threat detection.">
+  <meta property="og:image" content="assets/morgiana-2c-dark-square-2048.png">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Morgiana mark, variant 2c "Solid". Colors come from --mark-ink / --mark-accent. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="mark" viewBox="0 0 100 100">
+      <path d="M10 90V48a40 40 0 0 1 80 0V90H73V50a23 23 0 0 0-46 0V90Z" fill="var(--mark-ink)"/>
+      <path d="M41 90V54a9 9 0 0 1 18 0V90Z" fill="var(--mark-accent)"/>
+    </symbol>
+  </svg>
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="Morgiana home">
+        <svg class="brand-mark" aria-hidden="true"><use href="#mark"/></svg>
+        <span>Morgiana</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="#platform">Platform</a></li>
+          <li><a href="#about">About us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <h1>Any door could be a trap.<br>Catch them early.<br>Slow them down.</h1>
+          <p class="lede">AI-driven deception for internal threat detection.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#contact">Get in touch</a>
+            <a class="btn btn-ghost" href="#platform">How it works</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <svg class="hero-mark"><use href="#mark"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="platform">
+      <div class="wrap">
+        <p class="eyebrow">Platform</p>
+        <h2>Decoys that look real, so intruders reveal themselves.</h2>
+        <div class="cards">
+          <article class="card">
+            <span class="card-num">01</span>
+            <h3>Plant</h3>
+            <p>Deceptive assets blend into your network, indistinguishable from the real ones.</p>
+          </article>
+          <article class="card">
+            <span class="card-num">02</span>
+            <h3>Detect</h3>
+            <p>No legitimate user has a reason to touch a decoy. Any interaction is a high-signal alert.</p>
+          </article>
+          <article class="card">
+            <span class="card-num">03</span>
+            <h3>Delay</h3>
+            <p>Attackers go deeper down the corridor while your team gains time to respond.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="about">
+      <div class="wrap about">
+        <div>
+          <p class="eyebrow">About us</p>
+          <h2>Named after the one who marked every door.</h2>
+        </div>
+        <div class="about-copy">
+          <p>In the tale of Ali Baba, Morgiana chalk-marked every door in the street so the thieves couldn't find the real one.</p>
+          <p>We bring the same idea to security: fill the network with doors, decoys and traps, and let the intruder pick the wrong one.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="wrap contact">
+        <p class="eyebrow">Contact</p>
+        <h2>Talk to us.</h2>
+        <p class="contact-copy">Interested in a pilot, a demo or working together? We'd like to hear from you.</p>
+        <a class="btn btn-primary" href="mailto:info@morgiana.ai">info@morgiana.ai</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span class="brand brand-sm">
+        <svg class="brand-mark" aria-hidden="true"><use href="#mark"/></svg>
+        <span>Morgiana</span>
+      </span>
+      <span class="mono">© <span id="year">2026</span> Morgiana · morgiana.ai</span>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
