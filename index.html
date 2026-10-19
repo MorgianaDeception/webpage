@@ -94,21 +94,47 @@
       <div class="wrap about">
         <div>
           <p class="eyebrow">About us</p>
-          <h2>Named after the one who marked every door.</h2>
+          <h2>Who we are.</h2>
         </div>
         <div class="about-copy">
-          <p>In the tale of Ali Baba, Morgiana chalk-marked every door in the street so the thieves couldn't find the real one.</p>
-          <p>We bring the same idea to security: fill the network with doors, decoys and traps, and let the intruder pick the wrong one.</p>
+          <p>Morgiana is founded by Muris Sladic and Sebastian Garcia, researchers at the Czech Technical University in Prague (CTU).</p>
+          <ul class="team">
+            <li><span class="team-name">Muris Sladic</span><span class="team-role">Co-founder</span></li>
+            <li><span class="team-name">Sebastian Garcia</span><span class="team-role">Co-founder</span></li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section class="section" id="contact">
+    <section class="section" id="news">
+      <div class="wrap news">
+        <div>
+          <p class="eyebrow">News</p>
+          <h2>Keep me updated.</h2>
+          <p class="news-copy">Occasional updates on Morgiana: launches, pilots and research. No spam.</p>
+        </div>
+        <!-- Brevo subscription form. Replace the action with the URL from Brevo's embed code. -->
+        <form class="signup" id="signup" method="post" action="BREVO_FORM_URL" novalidate>
+          <label class="sr-only" for="signup-email">Email address</label>
+          <div class="signup-row">
+            <input id="signup-email" name="EMAIL" type="email" autocomplete="email" inputmode="email" placeholder="you@company.com" required>
+            <button class="btn btn-primary" type="submit">Subscribe</button>
+          </div>
+          <!-- Brevo honeypot: must stay empty -->
+          <input class="hp" type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="locale" value="en">
+          <p class="signup-note">You can unsubscribe at any time. We only use your email to send Morgiana news.</p>
+          <p class="signup-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="contact">
       <div class="wrap contact">
         <p class="eyebrow">Contact</p>
         <h2>Talk to us.</h2>
         <p class="contact-copy">Interested in a pilot, a demo or working together? We'd like to hear from you.</p>
-        <a class="btn btn-primary" href="mailto:info@morgiana.ai">info@morgiana.ai</a>
+        <a class="btn btn-primary" href="mailto:info@morgiana.io">info@morgiana.io</a>
       </div>
     </section>
   </main>
@@ -119,10 +145,55 @@
         <svg class="brand-mark" aria-hidden="true"><use href="#mark"/></svg>
         <span>Morgiana</span>
       </span>
-      <span class="mono">© <span id="year">2026</span> Morgiana · morgiana.ai</span>
+      <span class="mono">© <span id="year">2026</span> Morgiana · morgiana.io</span>
     </div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Newsletter signup: post to Brevo in the background so visitors stay on the page.
+    // Without JavaScript the form still submits normally to Brevo.
+    (function () {
+      var form = document.getElementById('signup');
+      var email = form.elements.EMAIL;
+      var button = form.querySelector('button');
+      var status = form.querySelector('.signup-status');
+
+      function show(msg, kind) {
+        status.textContent = msg;
+        status.className = 'signup-status' + (kind ? ' is-' + kind : '');
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!email.value || !email.checkValidity()) {
+          show('Please enter a valid email address.', 'error');
+          email.focus();
+          return;
+        }
+        if (form.getAttribute('action') === 'BREVO_FORM_URL') {
+          show('Signups are not open yet. Please check back soon.', 'error');
+          return;
+        }
+        button.disabled = true;
+        show('Subscribing…');
+        fetch(form.action + (form.action.indexOf('?') < 0 ? '?' : '&') + 'isAjax=1', {
+          method: 'POST',
+          body: new FormData(form)
+        })
+          .then(function (r) { return r.json(); })
+          .then(function (data) {
+            if (data && data.success === false) throw new Error();
+            form.reset();
+            show('Thanks! Check your inbox to confirm your subscription.', 'ok');
+          })
+          .catch(function () {
+            show('Something went wrong. Please try again later.', 'error');
+          })
+          .finally(function () { button.disabled = false; });
+      });
+    })();
+  </script>
 </body>
 </html>

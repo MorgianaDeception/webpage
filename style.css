@@ -176,6 +176,42 @@ h2 {
 }
 .about-copy { display: flex; flex-direction: column; gap: 16px; color: var(--muted); font-size: 18px; padding-top: 34px; }
 
+.team {
+  list-style: none; margin: 16px 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;
+}
+.team li {
+  display: flex; flex-direction: column; gap: 2px;
+  border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px;
+}
+.team-name { color: var(--paper); font-weight: 500; }
+.team-role { font-family: var(--mono); font-size: 12px; color: var(--accent); }
+
+.news {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end;
+}
+.news-copy { color: var(--muted); margin-top: 16px; max-width: 40ch; }
+.signup { display: flex; flex-direction: column; gap: 12px; }
+.signup-row { display: flex; gap: 10px; }
+.signup input[type=email] {
+  flex: 1; min-width: 0; min-height: 46px; padding: 0 16px;
+  border: 1px solid var(--line); border-radius: 8px;
+  background: rgba(247, 246, 243, .04); color: var(--paper);
+  font: inherit; font-size: 16px; /* 16px stops iOS zooming on focus */
+}
+.signup input[type=email]::placeholder { color: rgba(247, 246, 243, .4); }
+.signup input[type=email]:focus { border-color: var(--accent); outline: none; }
+.signup button:disabled { opacity: .6; cursor: progress; }
+.signup-note { font-size: 13px; color: var(--muted); }
+.signup-status { font-size: 14px; min-height: 1.5em; }
+.signup-status.is-ok { color: #8FD19E; }
+.signup-status.is-error { color: #F2A07A; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
 .contact { display: flex; flex-direction: column; align-items: flex-start; }
 .contact-copy { color: var(--muted); margin: 16px 0 32px; max-width: 44ch; }
 
@@ -189,6 +225,7 @@ h2 {
   .cards { grid-template-columns: 1fr; }
   .about { grid-template-columns: 1fr; gap: 24px; }
   .about-copy { padding-top: 0; }
+  .news { grid-template-columns: 1fr; gap: 28px; }
 }
 
 /* Phone */
@@ -214,4 +251,8 @@ h2 {
   .brand { font-size: 15px; gap: 8px; }
   .nav-links { gap: 10px; font-size: 12px; }
   .hero-cta .btn { flex: 1 1 100%; }
+}
+
+@media (max-width: 480px) {
+  .signup-row { flex-direction: column; }
 }
