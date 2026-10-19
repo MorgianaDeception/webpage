@@ -113,8 +113,8 @@
           <h2>Keep me updated.</h2>
           <p class="news-copy">Occasional updates on Morgiana: launches, pilots and research. No spam.</p>
         </div>
-        <!-- Brevo subscription form. Replace the action with the URL from Brevo's embed code. -->
-        <form class="signup" id="signup" method="post" action="BREVO_FORM_URL" novalidate>
+        <!-- Brevo subscription form (action URL from Brevo's embed code). -->
+        <form class="signup" id="signup" method="post" action="https://7c705590.sibforms.com/serve/MUIFALGd5jnLKmPj1WC9X6YJmUVcP8HrOpUWUyMxfWD6Ai-xINVK3snreB96qiR_nEi3y41atqNhrJUBiHebqgHdUojB0qDWNO-_RmkPfRAAya7Z5rjxv9UChMrIDBwyQhcdKEFJTkPeQKktopvt1cclC4XPeGyg1kH-f3YoTbnSh8KoY2kZ5GfJAtllF-1amxwrUT0p2zlHUcQ1yA==" novalidate>
           <label class="sr-only" for="signup-email">Email address</label>
           <div class="signup-row">
             <input id="signup-email" name="EMAIL" type="email" autocomplete="email" inputmode="email" placeholder="you@company.com" required>
@@ -170,10 +170,6 @@
         if (!email.value || !email.checkValidity()) {
           show('Please enter a valid email address.', 'error');
           email.focus();
-          return;
-        }
-        if (form.getAttribute('action') === 'BREVO_FORM_URL') {
-          show('Signups are not open yet. Please check back soon.', 'error');
           return;
         }
         button.disabled = true;
